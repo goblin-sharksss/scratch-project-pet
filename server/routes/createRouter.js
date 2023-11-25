@@ -1,6 +1,6 @@
 const express = require('express');
 const petController = require('../controller/controller');
-const userController = require('../controller/userController')
+
 const router = express.Router();
 
 router.get('/pets', petController.getPets, (req, res) => {
@@ -13,7 +13,7 @@ router.get('/pets/:id', petController.getOnePet, (req, res) => {
 });
 
 // POST req
-router.post('/pets', petController.postPet, (req, res) => {
+router.post('/', petController.postPet, (req, res) => {
 	return res.status(200).json(res.locals.postPets);
 });
 
@@ -31,12 +31,4 @@ router.delete('/pets', petController.releaseAll, (req, res) => {
 	return res.status(200).json();
 });
 
-
-// post req to  sign up, once signed up, redirect to log-in
-router.post('/signup', userController.createUser, (req, res) => {
-	res.redirect('/login');
-})
-
-// post req to log in, redirect to create-pet page
-router.post('/login')
 module.exports = router;
