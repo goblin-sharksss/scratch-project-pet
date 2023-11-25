@@ -2,12 +2,20 @@ const express = require('express');
 const path = require('path');
 const createRouter = require('./routes/createRouter');
 const app = express();
+const cors = require('cors');
 require('dotenv').config();
 const mongoose = require('mongoose');
 
 // handle parsing request body
 app.use(express.json()); // parses body EXCEPT html
 app.use(express.urlencoded({ extended: true })); // parses html
+
+app.use(
+	cors({
+		origin: 'http://localhost:8080',
+		credentials: true,
+	})
+);
 
 // handle static serve
 app.use('/dist', express.static(path.resolve(__dirname, '../dist')));

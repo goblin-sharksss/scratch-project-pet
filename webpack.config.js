@@ -13,6 +13,14 @@ module.exports= {
             directory: path.resolve(__dirname, 'dist'),
         },
         port: 8080,
+        // proxy: {
+        //     '/create': {
+        //         target: 'http://localhost:8080',
+        //         router: () => 'http://localhost:3000',
+        //         logLevel: 'debug',
+        //     }
+        // }
+        proxy: { '/create': 'http://localhost:3000'}
     },
     plugins: [
         new HTMLWebpackPlugin({

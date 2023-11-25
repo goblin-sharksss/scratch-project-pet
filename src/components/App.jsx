@@ -1,7 +1,8 @@
-import React, {useEffect, useState } from 'react';
-import CreatePage from './CreatePage';
+import React from 'react';
+import { useEffect, useState } from 'react';
+import CreatePage from './CreatePage.jsx';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import PetPage from './PetPage';
+import PetPage from './PetPage.jsx';
 
 function App(){
     return(
