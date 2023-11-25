@@ -19,9 +19,9 @@ const petSchema = new Schema({
 		default: 50,
 	},
 
-	happiness: {
-		type: Number,
-	},
+	// happiness: {
+	// 	type: Number,
+	// },
 
 	life: {
 		type: Boolean,
