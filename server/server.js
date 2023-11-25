@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const createRouter = require('./routes/create');
+const createRouter = require('./routes/createRouter');
 const app = express();
 require('dotenv').config();
 const mongoose = require('mongoose');
@@ -11,6 +11,18 @@ app.use(express.urlencoded({ extended: true })); // parses html
 
 // handle static serve
 app.use('/dist', express.static(path.resolve(__dirname, '../dist')));
+
+
+// serve log-in.html on /
+
+app.get('/', (req, res) => {
+return res.status(200).sendFile(path.join(__dirname, '../client/index.html' ))
+});
+
+// serve signup.html on /signup
+app.get('/signup', (req, res) => {
+	res.status(200).sendFile(path.join(__dirname, '../client/signup.html'))
+})
 
 // serve index.html on the route for /create
 app.get('/', (req, res) => {
