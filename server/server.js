@@ -17,6 +17,8 @@ app.use(
 		credentials: true,
 	})
 );
+
+
 // handle static serve
 app.use('/dist', express.static(path.resolve(__dirname, '../dist')));
 
