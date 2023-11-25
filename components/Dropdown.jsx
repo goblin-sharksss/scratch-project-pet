@@ -3,7 +3,7 @@ import React from 'react'
 function Dropdown() {
 return( 
     <div>
-    <label for="dog-names">Choose a dog name:</label> 
+    <label htmlFor="dog-names">Choose a dog name:</label> 
     <select name="dog-names" id="dog-names"> 
     <option value="rigatoni">Rigatoni</option> 
     <option value="dave">Dave</option> 

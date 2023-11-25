@@ -1,10 +1,11 @@
 import React, {useEffect, useState } from 'react';
+import CreatePage from '../../components/CreatePage';
 
 function App(){
     return(
-        <div>
-            <h1>Please work!</h1>
-        </div>
+        
+        <CreatePage />
+        
     )
 }
 
