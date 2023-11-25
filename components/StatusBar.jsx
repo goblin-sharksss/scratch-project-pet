@@ -1,7 +1,10 @@
 import React from 'react'
 
-function Statusbar () {
+function StatusBar () {
     
 
 
+
 }
+
+export default StatusBar
