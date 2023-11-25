@@ -17,4 +17,19 @@ petController.getPets = (req, res, next) => {
 		});
 };
 
+// post a pet info
+
+// petController.postPet = (req, res, next) => {
+// 	const { name, picture } = req.body;
+
+// 	Pet.create({ name, picture })
+// 		.then((pets) => {
+// 			res.locals.postPets = pets;
+// 			return next();
+// 		})
+// 		.catch((error) => {
+// 			console.log('Error in posting pets:', error);
+// 			return res.status(500).json({ error: 'Internet Server Error' });
+// 		});
+// };
 module.exports = petController;
