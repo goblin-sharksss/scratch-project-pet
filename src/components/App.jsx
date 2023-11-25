@@ -1,10 +1,17 @@
 import React, {useEffect, useState } from 'react';
+import CreatePage from './CreatePage';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import PetPage from './PetPage';
 
 function App(){
     return(
-        <div>
-            <h1>Please work!</h1>
-        </div>
+        <Router>
+            <Routes>
+                <Route exact path='/' Component={CreatePage} />
+                <Route exact path='/pets' Component={PetPage} />
+                {/* <Route exact path='/login' Component={LoginPage} */}
+            </Routes>
+        </Router>
     )
 }
 
