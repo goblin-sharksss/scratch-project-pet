@@ -32,7 +32,7 @@ app.get('/signup', (req, res) => {
 });
 
 // serve index.html on the route for /create
-app.get('/create', (req, res) => {
+app.get('/', (req, res) => {
 	return res.status(200).sendFile(path.join(__dirname, '../src/index.html'));
 });
 
