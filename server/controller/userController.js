@@ -4,11 +4,12 @@ const userController = {};
 
 // getAllUsers - retrieve all users from the database and stores it into res.locals
 //  * before moving on to next middleware.
-userController.getAllUsers = (res, req, next) => {
+userController.getAllUsers = (req, res, next) => {
 	User.find({})
 		.then((users) => {
 			res.locals.getAllUsers = users;
-			next();
+			console.log(res.locals.getAllUsers);
+			return next();
 		})
 		.catch((error) => {
 			console.log('Error in getting all users', error);
@@ -34,12 +35,20 @@ userController.createUser = (req, res, next) => {
 //  * the appropriate user in the database, and then authenticate the submitted password
 //  * against the password stored in the database.
 userController.verifyUser = (req, res, next) => {
-    const{ username, password } = req.body;
-User.findOne({username, password})
-    .then((user) => {
-        if(user){
-        res.send
-        }
-    })
-}
+	User.findOne({ username: res.body.username }).then((user) => {
+		// check if user is present or if the user's password is the same as
+		// req.body's password, then
+		// else, redirect to sign up page
+		if (!user || user.password !== req.body.password) {
+			console.log('this is body', req.body);
+			res.redirect('/signup');
+		} else {
+			res.locals._id = user._id;
+			res.locals.username = user.username;
+			res.locals.password = user.password;
+			// console.log('made it to line 66 of verify user!');
+			next();
+		}
+	});
+};
 module.exports = userController;

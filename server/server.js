@@ -1,7 +1,9 @@
 const express = require('express');
 const path = require('path');
 const createRouter = require('./routes/createRouter');
+const userRouter = require('./routes/userRouter');
 const app = express();
+const cors = require('cors');
 require('dotenv').config();
 const mongoose = require('mongoose');
 
@@ -9,20 +11,25 @@ const mongoose = require('mongoose');
 app.use(express.json()); // parses body EXCEPT html
 app.use(express.urlencoded({ extended: true })); // parses html
 
+app.use(
+	cors({
+		origin: 'http://localhost:8080',
+		credentials: true,
+	})
+);
 // handle static serve
 app.use('/dist', express.static(path.resolve(__dirname, '../dist')));
-
 
 // serve log-in.html on /
 
 app.get('/', (req, res) => {
-return res.status(200).sendFile(path.join(__dirname, '../client/index.html' ))
+	return res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
 });
 
 // serve signup.html on /signup
 app.get('/signup', (req, res) => {
-	res.status(200).sendFile(path.join(__dirname, '../client/signup.html'))
-})
+	res.status(200).sendFile(path.join(__dirname, '../client/signup.html'));
+});
 
 // serve index.html on the route for /create
 app.get('/create', (req, res) => {
@@ -30,6 +37,7 @@ app.get('/create', (req, res) => {
 });
 
 // handle api router
+app.use('/users', userRouter);
 app.use('/create', createRouter);
 
 // handle all route handler error for reqs (404)
