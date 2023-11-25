@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const apiRouter = require('./routes/api');
+const createRouter = require('./routes/create');
 const app = express();
 require('dotenv').config();
 const mongoose = require('mongoose');
@@ -13,12 +13,12 @@ app.use(express.urlencoded({ extended: true })); // parses html
 app.use('/dist', express.static(path.resolve(__dirname, '../dist')));
 
 // serve index.html on the route for /create
-app.get('/create', (req, res) => {
+app.get('/', (req, res) => {
 	return res.status(200).sendFile(path.join(__dirname, '../src/index.html'));
 });
 
 // handle api router
-app.use('/api', apiRouter);
+app.use('/create', createRouter);
 
 // handle all route handler error for reqs (404)
 app.use((req, res) => res.status(404).send('this is not the right page'));
