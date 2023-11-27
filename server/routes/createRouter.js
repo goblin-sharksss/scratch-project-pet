@@ -14,7 +14,6 @@ router.get('/pets/:id', petController.getOnePet, (req, res) => {
 
 // POST req
 router.post('/', petController.postPet, (req, res) => {
-router.post('/', petController.postPet, (req, res) => {
 	return res.status(200).json(res.locals.postPets);
 });
 
