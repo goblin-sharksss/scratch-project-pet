@@ -51,7 +51,7 @@ function Form() {
             <img
               src={shark}
               alt='shark'
-              style={{ width: '48px', height: '48px' }}
+              style={{ width: '100px', height: '100px' }}
             />
           </picture>
           <div id='pet-container-selection'>
