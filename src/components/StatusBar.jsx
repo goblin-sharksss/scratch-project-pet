@@ -7,6 +7,7 @@ function StatusBar () {
     const [thirst, setThirst] = useState(0);
     // handle feed and hydrate button click
     const {id} = useParams();
+
     const handleFeedButton = () => {
         setHunger((prevHunger) => Math.min(prevHunger + 10, 100));
         updateServerValues({hunger: hunger + 10});
