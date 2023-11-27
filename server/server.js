@@ -19,7 +19,6 @@ app.use(
 	})
 );
 
-
 // handle static serve
 app.use('/dist', express.static(path.resolve(__dirname, '../dist')));
 
@@ -35,7 +34,7 @@ app.get('/signup', (req, res) => {
 });
 
 // serve index.html on the route for /create
-app.get('/', (req, res) => {
+app.get('/create', (req, res) => {
 	return res.status(200).sendFile(path.join(__dirname, '../src/index.html'));
 });
 
