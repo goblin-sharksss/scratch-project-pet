@@ -6,12 +6,12 @@ function StatusBar () {
     const [thirst, setThirst] = useState(0);
     // handle feed and hydrate button click
     const handleFeedButton = () => {
-        setHunger((prevHunger) => prevHunger + 10);
+        setHunger((prevHunger) => Math.min(prevHunger + 10, 100));
         updateServerValues({hunger: hunger + 10}, thirst);
     }
 
     const handleHydrateButton = () => {
-        setThirst((prevThirst) => prevThirst + 10);
+        setThirst((prevThirst) => Math.min(prevThirst + 10), 100);
         updateServerValues(hunger, {thirst: thirst + 10});
     }
 
@@ -21,7 +21,7 @@ function StatusBar () {
         // use the fetched value to update the state
         // decrement of hunger and thirst over time
     useEffect(() => {
-        fetch('/createRouter/pets')
+        fetch('http://localhost:3000/createRouter/pets')
         .then((data) => {
             data.json();
         })
@@ -32,8 +32,8 @@ function StatusBar () {
         .catch((error) => console.log('Error fetching values:', error))
 
         const decreaseHungerThirst = setInterval(() => {
-            setHunger((prevHunger) => prevHunger - 5);
-            setThirst((prevThirst) => prevThirst - 5);
+            setHunger((prevHunger) => Math.max(prevHunger - 5), 0);
+            setThirst((prevThirst) => Math.max(prevThirst - 5), 0);
         }, 5000)
 
         return () => clearInterval(decreaseHungerThirst);
@@ -41,7 +41,8 @@ function StatusBar () {
 
     // update the server side values
     const updateServerValues = (id, updatedValues) => {
-        fetch(`/createRouter/pets/${id}`, {
+
+        fetch(`http://localhost:3000/createRouter/pets/`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
