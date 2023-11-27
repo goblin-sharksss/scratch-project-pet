@@ -36,28 +36,18 @@ function Form() {
       <input type='text' id='name' />
 
       <fieldset>
-        <picture>
-          <source srcSet='https://cdn3.vectorstock.com/i/1000x1000/08/17/goblin-shark-vector-9340817.jpg' />
-          <img
-            src='https://cdn3.vectorstock.com/i/1000x1000/08/17/goblin-shark-vector-9340817.jpg'
-            alt='shark'
-            style={{ width: '48px', height: '48px' }}
-          />
-        </picture>
-        <label htmlFor='pet1'>Pet 1</label>
-        <input type='radio' id='pet1' name='petName' value='pet1' />
-
         <div id='pet-box'>
           <picture>
             <source srcSet='https://cdn3.vectorstock.com/i/1000x1000/08/17/goblin-shark-vector-9340817.jpg' />
             <img
               src='https://cdn3.vectorstock.com/i/1000x1000/08/17/goblin-shark-vector-9340817.jpg'
               alt='shark'
-              style={{ width: '48px', height: '48px' }}
             />
           </picture>
-          <label htmlFor='pet2'>Pet 2</label>
-          <input type='radio' id='pet2' name='petName' value='pet2' />
+          <div id='pet-container-selection'>
+            <input type='radio' id='pet1' name='petName' value='pet1' />
+            <label htmlFor='pet1'>Redis</label>
+          </div>
         </div>
 
         <div id='pet-box'>
@@ -66,11 +56,26 @@ function Form() {
             <img
               src='https://cdn3.vectorstock.com/i/1000x1000/08/17/goblin-shark-vector-9340817.jpg'
               alt='shark'
-              style={{ width: '48px', height: '48px' }}
             />
           </picture>
-          <label htmlFor='pet3'>Pet 3</label>
-          <input type='radio' id='pet3' name='petName' value='pet3' />
+          <div id='pet-container-selection'>
+            <input type='radio' id='pet2' name='petName' value='pet2' />
+            <label htmlFor='pet2'>Mongoose</label>
+          </div>
+        </div>
+
+        <div id='pet-box'>
+          <picture>
+            <source srcSet='https://cdn3.vectorstock.com/i/1000x1000/08/17/goblin-shark-vector-9340817.jpg' />
+            <img
+              src='https://cdn3.vectorstock.com/i/1000x1000/08/17/goblin-shark-vector-9340817.jpg'
+              alt='shark'
+            />
+          </picture>
+          <div id='pet-container-selection'>
+            <input type='radio' id='pet3' name='petName' value='pet3' />
+            <label htmlFor='pet3'>Postgres</label>
+          </div>
         </div>
       </fieldset>
 
