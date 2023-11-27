@@ -13,6 +13,14 @@ module.exports= {
             directory: path.resolve(__dirname, 'dist'),
         },
         port: 8080,
+        // proxy: {
+        //     '/create': {
+        //         target: 'http://localhost:8080',
+        //         router: () => 'http://localhost:3000',
+        //         logLevel: 'debug',
+        //     }
+        // }
+        proxy: { '/create': 'http://localhost:3000'}
     },
     plugins: [
         new HTMLWebpackPlugin({
@@ -50,10 +58,16 @@ module.exports= {
 				],
 			},
 			{
-				test: /\.(png|jpg|gif)$/i,
+				test: /\.(png|jpe?g|gif)$/i,
+                include: /assets/,
 				use: [
 					{
 						loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'images/',
+                            publicPath: 'images/' 
+                        }
 					},
 				],
 			},

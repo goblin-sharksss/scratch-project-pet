@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const createRouter = require('./routes/createRouter');
 const userRouter = require('./routes/userRouter');
+const petPageRouter = require('./routes/petPageRouter');
 const app = express();
 const cors = require('cors');
 require('dotenv').config();
@@ -17,6 +18,8 @@ app.use(
 		credentials: true,
 	})
 );
+
+
 // handle static serve
 app.use('/dist', express.static(path.resolve(__dirname, '../dist')));
 
@@ -39,6 +42,7 @@ app.get('/', (req, res) => {
 // handle api router
 app.use('/users', userRouter);
 app.use('/create', createRouter);
+app.use('/petPage', petPageRouter);
 
 // handle all route handler error for reqs (404)
 app.use((req, res) => res.status(404).send('this is not the right page'));

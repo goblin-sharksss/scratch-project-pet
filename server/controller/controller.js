@@ -35,7 +35,7 @@ petController.getOnePet = (req, res, next) => {
 
 petController.postPet = (req, res, next) => {
 	const { name, picture } = req.body;
-
+	console.log('--------made it to postPet-------');
 	Pet.create({ name, picture })
 		.then((pets) => {
 			res.locals.postPets = pets;
