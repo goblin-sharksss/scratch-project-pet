@@ -35,7 +35,7 @@ petController.getOnePet = (req, res, next) => {
 
 petController.postPet = (req, res, next) => {
 	const { name, picture } = req.body;
-	console.log('--------made it to postPet-------');
+	// console.log('--------made it to postPet-------');
 	Pet.create({ name, picture })
 		.then((pets) => {
 			res.locals.postPets = pets;
@@ -58,6 +58,7 @@ petController.updatePet = (req, res, next) => {
 	Pet.findByIdAndUpdate(id, { thirst, hunger, age, life }, { new: true })
 		.then((pets) => {
 			res.locals.updatePet = pets;
+			console.log('is this hitting updatePet?');
 			return next();
 		})
 		.catch((error) => {

@@ -28,8 +28,9 @@ function Form() {
 
         })
         //THEN invoke react router for PetPage
-        .then(() => {
-          navigate('/petpage')
+        .then((response) => response.json())
+        .then((data) => {
+          navigate(`/petpage/${data._id}`)
         })
             // .then(() => {
             //     fetch('http://localhost:8080/create/pets', {
