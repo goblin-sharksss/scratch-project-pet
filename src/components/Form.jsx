@@ -45,16 +45,20 @@ function Form() {
       <input type='text' id='name' />
 
       <fieldset>
-        <picture>
-          {/* <source srcSet="https://cdn3.vectorstock.com/i/1000x1000/08/17/goblin-shark-vector-9340817.jpg" /> */}
-          <img
-            src={shark}
-            alt='shark'
-            style={{ width: '48px', height: '48px' }}
-          />
-        </picture>
-        <label htmlFor='pet1'>Pet 1</label>
-        <input type='radio' id='shark' name='petName' value='shark' />
+        <div id='pet-box'>
+          <picture>
+            {/* <source srcSet="https://cdn3.vectorstock.com/i/1000x1000/08/17/goblin-shark-vector-9340817.jpg" /> */}
+            <img
+              src={shark}
+              alt='shark'
+              style={{ width: '100px', height: '100px' }}
+            />
+          </picture>
+          <div id='pet-container-selection'>
+            <label htmlFor='pet1'>Pet 1</label>
+            <input type='radio' id='shark' name='petName' value='shark' />
+          </div>
+        </div>
 
         <div id='pet-box'>
           <picture>
