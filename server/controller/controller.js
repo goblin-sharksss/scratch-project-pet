@@ -39,6 +39,7 @@ petController.postPet = (req, res, next) => {
 	Pet.create({ name, picture })
 		.then((pets) => {
 			res.locals.postPets = pets;
+			console.log('new pet: ', pets)
 			return next();
 		})
 		.catch((error) => {
