@@ -1,93 +1,45 @@
-<<<<<<< HEAD
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const petSchema = new Schema({
-	name: {
-		type: String,
-		required: true,
-	},
+  name: {
+    type: String,
+    required: true,
+  },
 
-	hunger: {
-		type: Number,
-		required: true,
-		default: 50,
-	},
+  hunger: {
+    type: Number,
+    required: true,
+    default: 50,
+  },
 
-	thirst: {
-		type: Number,
-		required: true,
-		default: 50,
-	},
+  thirst: {
+    type: Number,
+    required: true,
+    default: 50,
+  },
 
-	// happiness: {
-	// 	type: Number,
-	// },
+  // happiness: {
+  // 	type: Number,
+  // },
 
-	life: {
-		type: Boolean,
-		required: true,
-		default: true,
-	},
+  life: {
+    type: Boolean,
+    required: true,
+    default: true,
+  },
 
-	age: {
-		type: Number,
-		required: true,
-		default: 0,
-	},
+  age: {
+    type: Number,
+    required: true,
+    default: 0,
+  },
 
-	picture: {
-		type: Number,
-		required: true,
-	},
+  picture: {
+    type: String,
+    required: true,
+  },
 });
 
 const Pet = mongoose.model('pets', petSchema);
 module.exports = Pet;
-=======
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-
-const petSchema = new Schema({
-	name: {
-		type: String,
-		required: true,
-	},
-
-	hunger: {
-		type: Number,
-		required: true,
-		default: 50,
-	},
-
-	thirst: {
-		type: Number,
-		required: true,
-		default: 50,
-	},
-
-	// happiness: {
-	// 	type: Number,
-	// },
-
-	life: {
-		type: Boolean,
-		required: true,
-		default: true,
-	},
-
-	age: {
-		type: Number,
-		required: true,
-		default: 0,
-	},
-
-	picture: {
-		type: String,
-		required: true,
-	},
-});
-
-const Pet = mongoose.model('pets', petSchema);
-module.exports = Pet;
->>>>>>> dev
