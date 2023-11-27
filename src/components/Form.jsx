@@ -1,10 +1,13 @@
 import React from 'react';
+// import {withRouter} from 'react-router-dom'
+import { useNavigate } from 'react-router';
 import shark from '../assets/goblin_shark_puppy_by_tsaoshin_df0germ-pre.jpeg';
 import redlip from '../assets/red-lipped.jpeg';
 import crab from '../assets/yeti-crab-prints Medium.jpeg';
 
 //    event.preventDefault();
 function Form() {
+  const navigate = useNavigate();
   function handleContinue(e) {
     //get input from name input
     e.preventDefault();
@@ -25,34 +28,33 @@ function Form() {
     })
       //THEN invoke react router for PetPage
       .then(() => {
-        fetch('http://localhost:8080/create/pets', {
-          method: 'GET',
-          mode: 'cors',
-        });
+        navigate('/petpage');
       })
+      // .then(() => {
+      //     fetch('http://localhost:8080/create/pets', {
+      //         method: 'GET',
+      //         mode: 'cors'
+      //     })
+      // })
       .catch((error) => console.log('this is not working', error));
   }
 
   return (
     <form id='create pet'>
       <label htmlFor='name'>Pet's name</label>
-      <input type='text' id='name' placeholder='Enter your pets name' />
+      <input type='text' id='name' />
 
       <fieldset>
-        <div id='pet-box'>
-          <picture>
-            {/* <source srcSet="https://cdn3.vectorstock.com/i/1000x1000/08/17/goblin-shark-vector-9340817.jpg" /> */}
-            <img
-              src={shark}
-              alt='shark'
-              style={{ width: '100px', height: '100px' }}
-            />
-          </picture>
-          <div id='pet-container-selection'>
-            <input type='radio' id='shark' name='petName' value='shark' />
-            <label htmlFor='pet1'>Pet 1</label>
-          </div>
-        </div>
+        <picture>
+          {/* <source srcSet="https://cdn3.vectorstock.com/i/1000x1000/08/17/goblin-shark-vector-9340817.jpg" /> */}
+          <img
+            src={shark}
+            alt='shark'
+            style={{ width: '48px', height: '48px' }}
+          />
+        </picture>
+        <label htmlFor='pet1'>Pet 1</label>
+        <input type='radio' id='shark' name='petName' value='shark' />
 
         <div id='pet-box'>
           <picture>
