@@ -41,7 +41,7 @@ app.get('/create', (req, res) => {
 // handle api router
 app.use('/users', userRouter);
 app.use('/create', createRouter);
-app.use('/petPage', petPageRouter);
+// app.use('/petPage', petPageRouter);
 
 // handle all route handler error for reqs (404)
 app.use((req, res) => res.status(404).send('this is not the right page'));
