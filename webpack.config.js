@@ -58,10 +58,16 @@ module.exports= {
 				],
 			},
 			{
-				test: /\.(png|jpg|gif)$/i,
+				test: /\.(png|jpe?g|gif)$/i,
+                include: /assets/,
 				use: [
 					{
 						loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'images/',
+                            publicPath: 'images/' 
+                        }
 					},
 				],
 			},
