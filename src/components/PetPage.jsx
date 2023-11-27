@@ -4,7 +4,7 @@ import Dropdown from './Dropdown'
 
 function PetPage () {
     return(
-        <div>
+        <div id="pet-page">
         <Dropdown />
         <StatusBar />
         <picture>
