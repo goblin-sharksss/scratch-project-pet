@@ -25,7 +25,7 @@ app.use('/dist', express.static(path.resolve(__dirname, '../dist')));
 // serve log-in.html on /
 
 app.get('/', (req, res) => {
-  return res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
+	return res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
 });
 
 // serve signup.html on /signup
@@ -35,7 +35,7 @@ app.get('/signup', (req, res) => {
 
 // serve index.html on the route for /create
 app.get('/create', (req, res) => {
-  return res.status(200).sendFile(path.join(__dirname, '../src/index.html'));
+	return res.status(200).sendFile(path.join(__dirname, '../src/index.html'));
 });
 
 // handle api router
