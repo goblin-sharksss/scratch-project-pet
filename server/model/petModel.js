@@ -1,37 +1,44 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const petSchema = new Schema({
   name: {
     type: String,
     required: true,
+    index: { unique: true, dropDups: true },
   },
-
+  /* const userSchema = new Schema({
+  firstName: { type: String, required: true },
+  lastName: { type: String, required: true },
+  age: { type: Number, required: true },
+});*/
   hunger: {
     type: Number,
-    required: true,
     default: 50,
   },
 
   thirst: {
     type: Number,
-    required: true,
     default: 50,
   },
 
-  // happiness: {
-  // 	type: Number,
-  // },
+  happiness: {
+    type: Number,
+    default: 50,
+  },
+
+  birthday: {
+    type: Object,
+    default: new Date(),
+  },
 
   life: {
     type: Boolean,
-    required: true,
     default: true,
   },
 
   age: {
     type: Number,
-    required: true,
     default: 0,
   },
 
@@ -41,5 +48,5 @@ const petSchema = new Schema({
   },
 });
 
-const Pet = mongoose.model('pets', petSchema);
+const Pet = mongoose.model("pets", petSchema);
 module.exports = Pet;
